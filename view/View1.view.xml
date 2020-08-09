@@ -2,9 +2,83 @@
 	<Shell id="shell">
 		<App id="app">
 			<pages>
-				<Page id="page" title="{i18n>title}">
+				<Page id="page" title="Blood Donors Network">
 					<content>
+							<Table id="idProductsTable"
+	
+		items="{/DonorCollection}">
+		<headerToolbar>
+			<OverflowToolbar>
+				<content>
+					<Title text="Donor information" level="H2"/>
+					<ToolbarSpacer />
+				</content>
+			</OverflowToolbar>
+		</headerToolbar>
+		<columns>
+			<Column
+				width="12em">
+				<Text text="Name" />
+			</Column>
+			<Column
+				minScreenWidth="Tablet"
+				demandPopin="true">
+				<Text text="Blood Group" />
+			</Column>
+			<Column
+				minScreenWidth="Desktop"
+				demandPopin="true"
+				hAlign="End">
+				<Text text="Mobile Number" />
+			</Column>
+			<Column
+				minScreenWidth="Desktop"
+				demandPopin="true"
+				hAlign="Center">
+				<Text text="Place" />
+			</Column>
+			<Column
+				hAlign="End">
+				<Text text="Pincode" />
+			</Column>
+						<Column
+				hAlign="End">
+				<Text text="Age" />
+			</Column>
+						<Column
+				hAlign="End">
+				<Text text="Weight" />
+			</Column>
 						
+						<Column
+				hAlign="End">
+				<Text text="Sex" />
+			</Column>
+		</columns>
+		<items>
+			<ColumnListItem>
+				<cells>
+					<Text
+						text="{Name}" />
+										<Text
+						text="{Blood Group}" />
+											<Text
+						text="{Mobile Number}" />
+											<Text
+						text="{Place}" />
+											<Text
+						text="{Pincode}" />
+											<Text
+						text="{Age}" />
+											<Text
+						text="{Weight}" />
+											<Text
+						text="{Sex}" />	
+				
+				</cells>
+			</ColumnListItem>
+		</items>
+	</Table>
 					</content>
 				</Page>
 			</pages>

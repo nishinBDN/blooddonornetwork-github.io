@@ -1,84 +1,129 @@
-<mvc:View controllerName="bdn.BDN.controller.View1" xmlns:mvc="sap.ui.core.mvc" displayBlock="true" xmlns="sap.m">
+<mvc:View controllerName="bdn.BDN.controller.View1" xmlns:fb="sap.ui.comp.filterbar" xmlns:l="sap.ui.layout" xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" displayBlock="true" xmlns="sap.m">
 	<Shell id="shell">
 		<App id="app">
 			<pages>
 				<Page id="page" title="Blood Donors Network">
 					<content>
-							<Table id="idProductsTable"
-	
-		items="{/DonorCollection}">
-		<headerToolbar>
-			<OverflowToolbar>
-				<content>
-					<Title text="Donor information" level="H2"/>
-					<ToolbarSpacer />
-				</content>
-			</OverflowToolbar>
-		</headerToolbar>
-		<columns>
-			<Column
-				width="12em">
-				<Text text="Name" />
-			</Column>
-			<Column
-				minScreenWidth="Tablet"
-				demandPopin="true">
-				<Text text="Blood Group" />
-			</Column>
-			<Column
-				minScreenWidth="Desktop"
-				demandPopin="true"
-				hAlign="End">
-				<Text text="Mobile Number" />
-			</Column>
-			<Column
-				minScreenWidth="Desktop"
-				demandPopin="true"
-				hAlign="Center">
-				<Text text="Place" />
-			</Column>
-			<Column
-				hAlign="End">
-				<Text text="Pincode" />
-			</Column>
-						<Column
-				hAlign="End">
-				<Text text="Age" />
-			</Column>
-						<Column
-				hAlign="End">
-				<Text text="Weight" />
-			</Column>
-						
-						<Column
-				hAlign="End">
-				<Text text="Sex" />
-			</Column>
-		</columns>
-		<items>
-			<ColumnListItem>
-				<cells>
-					<Text
-						text="{Name}" />
+						<l:VerticalLayout width="100%">
+							<fb:FilterBar reset="onReset"
+								search="onSearch"
+								showRestoreButton="true"
+								showClearButton="true">
+								<fb:filterGroupItems>
+									<fb:FilterGroupItem groupName="__$INTERNAL$"
+										name="A"
+										label="PinCode"
+										partOfCurrentVariant="true"
+										visibleInFilterBar="true">
+										<fb:control>
+											<Input></Input>
+										</fb:control>
+									</fb:FilterGroupItem>
+
+									<fb:FilterGroupItem groupName="__$INTERNAL$"
+										name="B"
+										label="Blood Group"
+										labelTooltip="Blood Group"
+										mandatory="true"
+										partOfCurrentVariant="true"
+										visibleInFilterBar="true">
+										<fb:control>
+											<ComboBox type="Text">
+												<items>
+													<core:Item key="B-"
+														text="B-" />
+													<core:Item key="O+"
+														text="O+" />
+													<core:Item key="A+"
+														text="A+" />
+												</items>
+											</ComboBox>
+										</fb:control>
+									</fb:FilterGroupItem>
+
+								</fb:filterGroupItems>
+							</fb:FilterBar>
+						</l:VerticalLayout>
+
+						<Table id="idDonorTable"
+
+							items="{/}">
+							<headerToolbar>
+								<OverflowToolbar>
+									<content>
+										<Title text="Donor information"
+											level="H2" />
+										<ToolbarSpacer />
+										<Button text="Add" type="Emphasized" />
+										<Button text="Delete"
+											type="Emphasized" />
+									</content>
+								</OverflowToolbar>
+							</headerToolbar>
+							<columns>
+								<Column
+									width="12em">
+									<Text text="Name" />
+								</Column>
+								<Column
+									minScreenWidth="Tablet"
+									demandPopin="true">
+									<Text text="Blood Group" />
+								</Column>
+								<Column
+									minScreenWidth="Desktop"
+									demandPopin="true"
+									hAlign="End">
+									<Text text="Mobile Number" />
+								</Column>
+								<Column
+									minScreenWidth="Desktop"
+									demandPopin="true"
+									hAlign="Center">
+									<Text text="Place" />
+								</Column>
+								<Column
+									hAlign="End">
+									<Text text="Pincode" />
+								</Column>
+								<Column
+									hAlign="End">
+									<Text text="Age" />
+								</Column>
+								<Column
+									hAlign="End">
+									<Text text="Weight" />
+								</Column>
+
+								<Column
+									hAlign="End">
+									<Text text="Sex" />
+								</Column>
+							</columns>
+							<items>
+								<ColumnListItem>
+									<cells>
 										<Text
-						text="{Blood Group}" />
-											<Text
-						text="{Mobile Number}" />
-											<Text
-						text="{Place}" />
-											<Text
-						text="{Pincode}" />
-											<Text
-						text="{Age}" />
-											<Text
-						text="{Weight}" />
-											<Text
-						text="{Sex}" />	
-				
-				</cells>
-			</ColumnListItem>
-		</items>
-	</Table>
+											text="{Name}" />
+										<Text
+											text="{Blood Group}" />
+										<Text
+											text="{Mobile Number}" />
+										<Text
+											text="{Place}" />
+										<Text
+											text="{Pincode}" />
+										<Text
+											text="{Age}" />
+										<Text
+											text="{Weight}" />
+										<Text
+											text="{Sex}" />
+
+									</cells>
+								</ColumnListItem>
+							</items>
+						</Table>
 					</content>
 				</Page>
 			</pages>
